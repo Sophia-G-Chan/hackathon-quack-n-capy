@@ -10,7 +10,6 @@ const dateSelector = document.querySelector(".nav__currentDate");
 dateSelector.innerText = currentDate.toLocaleDateString("en-US");
 const scoreSection = document.querySelector(".score-section");
 
-
 let currentImageType = '';
 let userScore = 0;
 let currentUsername = '';

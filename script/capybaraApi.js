@@ -17,7 +17,6 @@ class CapybaraApi {
         const {data} = await axios.get(`${this.baseUrl}/facts`);
         return data;
     }
-
 }
 
 export default CapybaraApi;
