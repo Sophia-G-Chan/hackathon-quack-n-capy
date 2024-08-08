@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="./script/index.js" defer></script>
+    <title>Quack n Capy</title>
+</head>
+
+<body>
+    <header class="header">
+
+        <nav class="nav__container">
+            <img class="nav__img" src="./assets/duck-capy-logo.png" alt="Logo-duck">
+            <h1 class="nav__header">Quack n Capy</h1>
+            <div id="nav__currentDate" class="nav__currentDate">
+            </div>
+
+
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="username-section">
+            <div class="username-section__wrapper">
+
+                <form id="username-section__form" class="username-section__form">
+                    <label for="userName" class="username-section__input">Username</label>
+                    <div class="username-section__container"></div>
+                        <input type="text" id="userName" name="name" placeholder="Enter your name" required>
+                        <button class="username-section__btn" type="submit">Post</button>
+                    </div>
+                </form>
+
+
+            </div>
+
+        </section>
+
+        <section class="photo-section">
+            <div class="photo-section__container">
+                <div id="photo-section__RandomPhoto" class="photo-section__RandomPhoto">
+                    <img class="photo-section__img">
+                </div>
+                <div class="photo-section__BtnWrapper">
+                    <button class="photo-section__SelectBtn-1" type="submit">Duck</button>
+                    <button class="photo-section__SelectBtn-2" type="submit">Capybara</button>
+                </div>
+            </div>
+        </section>
+        <div id ="score-section__CurrentScore" class="score-section__CurrentScore">
+            <h1 class="score-section__text">Current Score</h1>
+        </div>
+        <section class="score-section">
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__autherWrapper">
+            <h3 class="footer__header"> Author </h3>
+            <p class="footer__author"> Li <br> Sophia <br> Cathy </p>
+        </div>
+
+        <p class="footer__date">August 8, 2024</p>
+
+    </footer>
+
+
+</body>
+
+</html>

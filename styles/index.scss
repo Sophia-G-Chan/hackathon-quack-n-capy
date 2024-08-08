@@ -1,0 +1,97 @@
+@use "./partials/mixin" as *;
+@use "./partials/variables" as *;
+@use "./partials/typography" as *;
+@use "./partials/global" as *;
+
+
+
+.username-section{
+
+    &__wrapper{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+        &__form{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+        }
+        // &__container{
+        //     display: flex;
+        //     flex
+        // }
+        &__btn{
+            background-color: $Sage;
+            width: 5rem;
+            height: 2rem;
+            border-radius: 5px;
+            margin-left: 5.5rem;
+
+        }
+        &__input{
+            padding-right: 2rem;
+            padding-top: 0.5rem;
+
+        }
+
+        &__users{
+            display: flex;
+            justify-content: space-between;
+        }
+}
+
+
+.photo-section{
+    &__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+
+    }
+        &__BtnWrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 1rem;
+            margin: 0 3rem;
+        }
+
+            &__SelectBtn-1{
+                background-color: $Sage;
+                width: 10rem;
+                height: 2rem;
+                border-radius: 5px;
+                margin: 1rem;
+            }
+                &__SelectBtn-2{
+                    background-color: $Sage;
+                    width: 10rem;
+                    height: 2rem;
+                    border-radius: 5px;
+                    margin: 1rem
+                }
+
+                    &__RandomPhoto{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 70%;
+                        object-fit: contain;
+                    }
+                        &__img {
+                            padding: 1rem;
+                            width: 100%;
+                            height: 40vh;
+                        }
+}
+
+.score-section__users {
+    display: flex;
+    justify-content: space-between;
+}

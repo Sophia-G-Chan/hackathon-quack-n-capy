@@ -1,0 +1,60 @@
+@use "./mixin" as *;
+@use "./variables" as *;
+
+body{
+    background-color: $White;
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+}
+
+
+.header{
+    background-color: $Brown;
+    &_logo{
+        width: 16px;
+        height: 16px;
+    }
+
+}
+
+.nav{
+    &__img {
+    width: 5rem;
+    height: 5rem;
+    }
+        &__header{
+
+        }
+            &__container{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            &__currentDate{
+                padding-top:2rem ;
+                padding-right: 5rem;
+
+            }
+}
+
+
+
+main{
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+//footer
+// footer
+
+.footer{
+    background-color: $Brown ;
+    display: flex;
+    justify-content: space-around;
+        &__date{
+            padding-top: 2.5rem;
+        }
+}
