@@ -6,7 +6,6 @@ class DuckApi{
     async getDuckImage(){
         try{
             const {data} = await axios.get(`${this.baseUrl}/random`);
-            console.log(data);
             return data.url;
         }catch(err){
             console.log("unable to load the image", err);

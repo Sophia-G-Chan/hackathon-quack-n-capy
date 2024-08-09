@@ -21,7 +21,8 @@ body{
     height: 5rem;
     }
         &__header{
-
+            display: flex;
+            align-items: center;
         }
             &__container{
                 display: flex;
@@ -30,20 +31,21 @@ body{
             }
             &__currentDate{
                 padding-top:2rem ;
-                padding-right: 5rem;
+                padding-right: 1rem;
 
             }
 }
 
-
-
 main{
-
-
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 2rem;
+}
+
+p{
+    margin: 0;
 }
 //footer
 // footer
@@ -51,7 +53,17 @@ main{
 .footer{
     background-color: $Brown ;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+
+        &__header{
+            margin: 1.5rem 0 0 0;
+        }
+
+        &__author {
+            margin-bottom: 1rem;
+        }
+
         &__date{
             padding-top: 2.5rem;
         }

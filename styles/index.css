@@ -3,7 +3,6 @@
   font-weight: 400;
   src: url(https://fonts.gstatic.com/s/raleway/v34/1Ptsg8zYS_SKggPNyCg4QIFqL_KWxWMT.woff2) format("woff2");
 }
-
 body {
   background-color: #F1F1F1;
   font-family: "Raleway", sans-serif;
@@ -22,6 +21,10 @@ body {
   width: 5rem;
   height: 5rem;
 }
+.nav__header {
+  display: flex;
+  align-items: center;
+}
 .nav__container {
   display: flex;
   flex-direction: row;
@@ -29,25 +32,40 @@ body {
 }
 .nav__currentDate {
   padding-top: 2rem;
-  padding-right: 5rem;
+  padding-right: 1rem;
 }
 
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 2rem;
+}
+
+p {
+  margin: 0;
 }
 
 .footer {
   background-color: #c7b7a3;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+.footer__header {
+  margin: 1.5rem 0 0 0;
+}
+.footer__author {
+  margin-bottom: 1rem;
 }
 .footer__date {
   padding-top: 2.5rem;
 }
 
+.username-section {
+  width: 40vw;
+}
 .username-section__wrapper {
   display: flex;
   justify-content: space-evenly;
@@ -62,11 +80,12 @@ main {
   background-color: #B5c18E;
   width: 5rem;
   height: 2rem;
-  border-radius: 5px;
-  margin-left: 5.5rem;
+  border-radius: 10rem;
+  border: none;
+  margin-left: 1rem;
 }
 .username-section__input {
-  padding-right: 2rem;
+  padding-right: 0.5rem;
   padding-top: 0.5rem;
 }
 .username-section__users {
@@ -74,6 +93,19 @@ main {
   justify-content: space-between;
 }
 
+.fact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40vw;
+}
+
+.photo-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .photo-section__container {
   display: flex;
   flex-direction: column;
@@ -93,14 +125,16 @@ main {
   background-color: #B5c18E;
   width: 10rem;
   height: 2rem;
-  border-radius: 5px;
+  border: none;
+  border-radius: 10rem;
   margin: 1rem;
 }
 .photo-section__SelectBtn-2 {
   background-color: #B5c18E;
   width: 10rem;
   height: 2rem;
-  border-radius: 5px;
+  border: none;
+  border-radius: 10rem;
   margin: 1rem;
 }
 .photo-section__RandomPhoto {
@@ -113,11 +147,27 @@ main {
 }
 .photo-section__img {
   padding: 1rem;
-  width: 100%;
-  height: 40vh;
+  width: 70%;
+  height: 30vh;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
-.score-section__users {
+.score-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.score-section__CurrentScore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.score-section__users-container {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px dashed grey;
+  width: 40vw;
 }/*# sourceMappingURL=index.css.map */

@@ -5,22 +5,27 @@ import DuckApi from "./duckApi.js";
 const capyAPI = new CapybaraApi();
 const duckApi = new DuckApi();
 const imgSelector = document.querySelector(".photo-section__img");
+const dateFormating = {  weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'}
 const currentDate = new Date();
 const dateSelector = document.querySelector(".nav__currentDate");
-dateSelector.innerText = currentDate.toLocaleDateString("en-US");
+dateSelector.innerText = currentDate.toLocaleDateString("en-US", dateFormating);
 const scoreSection = document.querySelector(".score-section");
+const factContainer = document.createElement("div");
 
 let currentImageType = '';
 let userScore = 0;
 let currentUsername = '';
 
 const topUserScores = [
-    {userName: "Cathy", score: 1000},
-    {userName: "Li", score: 1000},
-    {userName: "Sophia", score: 1000}
+    { userName: "Cathy", score: 1000 },
+    { userName: "Li", score: 1000 },
+    { userName: "Sophia", score: 1000 }
 ];
 
-async function getDuckImgAndAddToDOM(){
+async function getDuckImgAndAddToDOM() {
     const duckImageUrl = await duckApi.getDuckImage();
     imgSelector.src = duckImageUrl;
 }
@@ -29,6 +34,15 @@ async function getCapybaraImgAndAddToDOM() {
     const capybaraImgUrl = await capyAPI.getCapybaraImg();
     imgSelector.src = capybaraImgUrl;
 }
+
+async function getRandomCapybaraFact() {
+    const response  = await capyAPI.getCapybaraFact();
+    const imgContainerSelector = document.querySelector(".photo-section");
+    factContainer.classList.add("fact");
+    imgContainerSelector.append(factContainer);
+    factContainer.innerText = `You got the answer correct here is your random fact about capybaras: ${response}`;
+}
+
 
 async function renderRandomDuckOrCapyImg() {
     const randomNumber = Math.floor(Math.random() * 2);
@@ -51,9 +65,12 @@ async function initializeGame() {
 // Handle the score
 async function handleAnswer(userSelected) {
     if (userSelected === currentImageType) {
+        const scoreNumber = document.querySelector(".score-section__users-current-score");
         userScore += 100;
-        alert(`Correct! Your score is now ${userScore}`);
+        scoreNumber.innerText = userScore;
+        //alert(`Correct! Your score is now ${userScore}`);
         updateTopScores();
+        getRandomCapybaraFact();
     } else {
         alert(`Wrong! The correct answer was ${currentImageType}. Your score remains ${userScore}`);
     }
@@ -61,15 +78,16 @@ async function handleAnswer(userSelected) {
     currentImageType = await renderRandomDuckOrCapyImg();
 }
 
-function renderUserToList (event) {
+function renderUserToList(event) {
     scoreSection.innerText = "";
-    event.forEach(user => {
 
+    event.forEach(user => {
         const usersContainer = document.createElement("div");
-        usersContainer.classList.add("score-section__users");
+        usersContainer.classList.add("score-section__users-container");
 
         const userName = document.createElement("p");
-        userName.innerText = user.userName ;
+        userName.classList.add("score-section__user");
+        userName.innerText = user.userName;
 
         const userScore = document.createElement("p");
         userScore.innerText = user.score;
@@ -89,23 +107,17 @@ function updateTopScores() {
     const existingUserIndex = topUserScores.findIndex(user => user.userName === currentUsername);
 
     if (existingUserIndex !== -1) {
-
         if (userScore > topUserScores[existingUserIndex].score) {
             topUserScores[existingUserIndex].score = userScore;
         }
     } else {
-
         topUserScores.push(currentUser);
     }
 
-
     topUserScores.sort((a, b) => b.score - a.score);
     topUserScores.splice(3);
-
-
     console.log("Updated top scores:", topUserScores);
 }
-
 
 const buttonClickCapy = document.querySelector('.photo-section__SelectBtn-2');
 const buttonClickDuck = document.querySelector('.photo-section__SelectBtn-1');
@@ -121,11 +133,18 @@ usernameForm.addEventListener('submit', handleUsernameSubmit);
 function handleUsernameSubmit(event) {
     event.preventDefault();
     const usernameInput = document.getElementById('userName');
+    const inputNameSection = document.querySelector(".username-section");
+    const userNameContainer = document.createElement("h3");
+
     const newUsername = usernameInput.value;
+
+    inputNameSection.appendChild(userNameContainer);
+    factContainer.innerText = "";
 
     if (newUsername) {
         currentUsername = newUsername;
-        alert(`Username set to: ${currentUsername}`);
+        //alert(`Username set to: ${currentUsername}`);
+        userNameContainer.innerText = `Hi ${currentUsername} thanks for choosing to play the Quack n' Capy game. Guess if the photos below is a duck or capybara to get a high score!`;
         usernameForm.reset();
         // this is not working. did not add to the list
         renderUserToList(topUserScores);

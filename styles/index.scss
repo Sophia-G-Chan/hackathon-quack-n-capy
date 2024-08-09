@@ -4,6 +4,7 @@
 @use "./partials/global" as *;
 
 .username-section{
+    width: 40vw;
 
     &__wrapper{
         display: flex;
@@ -16,22 +17,19 @@
             justify-content: space-evenly;
 
         }
-        // &__container{
-        //     display: flex;
-        //     flex
-        // }
+
         &__btn{
             background-color: $Sage;
             width: 5rem;
             height: 2rem;
-            border-radius: 5px;
-            margin-left: 5.5rem;
+            border-radius: 10rem;
+            border: none;
+            margin-left: 1rem;
 
         }
         &__input{
-            padding-right: 2rem;
+            padding-right: 0.5rem;
             padding-top: 0.5rem;
-
         }
 
         &__users{
@@ -39,9 +37,19 @@
             justify-content: space-between;
         }
 }
-
+.fact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+}
 
 .photo-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     &__container{
         display: flex;
         flex-direction: column;
@@ -64,14 +72,16 @@
                 background-color: $Sage;
                 width: 10rem;
                 height: 2rem;
-                border-radius: 5px;
+                border: none;
+                border-radius: 10rem;
                 margin: 1rem;
             }
                 &__SelectBtn-2{
                     background-color: $Sage;
                     width: 10rem;
                     height: 2rem;
-                    border-radius: 5px;
+                    border: none;
+                    border-radius: 10rem;
                     margin: 1rem
                 }
 
@@ -84,12 +94,31 @@
                     }
                         &__img {
                             padding: 1rem;
-                            width: 100%;
-                            height: 40vh;
+                            width: 70%;
+                            height: 30vh;
+                            object-fit: contain;
                         }
 }
 
-.score-section__users {
+.score-section{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__CurrentScore {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__users-container {
+        display: flex;
+        justify-content: space-between;
+
+        border-bottom: 1px dashed grey;
+        width: 40vw;
+    }
+
 }

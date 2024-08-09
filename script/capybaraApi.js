@@ -6,7 +6,6 @@ class CapybaraApi {
     async getCapybaraImg () {
         try {
             const {data} = await axios.get(`${this.baseUrl}capybara?json=true`);
-            console.log(data.data);
             return data.data.url;
         } catch {
             console.error(`unable to get image of a capybara 🙁`);
@@ -14,8 +13,8 @@ class CapybaraApi {
     }
 
     async getCapybaraFact () {
-        const {data} = await axios.get(`${this.baseUrl}/facts`);
-        return data;
+        const {data} = await axios.get(`${this.baseUrl}facts`);
+        return data.data[Math.floor(Math.random()*25)];
     }
 }
 
